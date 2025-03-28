@@ -24,6 +24,7 @@ return {
                 "diff",
                 "tsx",
                 "sql",
+                "html"
             },
             sync_install = false,
             highlight = { enable = true },
@@ -33,6 +34,8 @@ return {
             if type(opts.ensure_installed) == "table" then
                 --opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
             end
+
+            vim.treesitter.language.register("html", "qtpl")
             require("nvim-treesitter.configs").setup(opts)
         end,
     },
@@ -436,5 +439,14 @@ return {
             })
             vim.keymap.set('n', '<Leader>tt', ':lua require("neotest").run.run()<CR>', { desc = 'Run test' })
         end,
+    },
+    {
+        {
+            'windwp/nvim-autopairs',
+            event = "InsertEnter",
+            config = true
+            -- use opts = {} for passing setup options
+            -- this is equivalent to setup({}) function
+        }
     }
 }

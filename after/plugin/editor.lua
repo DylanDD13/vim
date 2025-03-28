@@ -6,3 +6,4 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" 
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>", { noremap = true })
 vim.keymap.set("n", "gi", ":Telescope lsp_implementations<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>jq", ":%!jq .<CR>", {noremap = true, desc = "jq format json file"})
